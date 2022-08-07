@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://feverhu.github.io/tags/index.html</loc>
-    
-    <lastmod>2022-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://feverhu.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://feverhu.github.io/2022/08/07/TEA%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2022-08-07</lastmod>
@@ -30,6 +12,24 @@
   
   <url>
     <loc>https://feverhu.github.io/2022/08/07/angr%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://feverhu.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://feverhu.github.io/categories/index.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -65,13 +65,6 @@
 
   
   <url>
-    <loc>https://feverhu.github.io/tags/reverse/</loc>
-    <lastmod>2022-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://feverhu.github.io/tags/tags/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -80,6 +73,13 @@
   
   <url>
     <loc>https://feverhu.github.io/tags/angr/</loc>
+    <lastmod>2022-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://feverhu.github.io/tags/TEA/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
