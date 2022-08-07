@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://feverhu.github.io/links/index.html</loc>
+    <loc>https://feverhu.github.io/tags/index.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://feverhu.github.io/2022/08/07/angr%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://feverhu.github.io/categories/index.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://feverhu.github.io/2022/07/31/hello-world/</loc>
+    <loc>https://feverhu.github.io/2022/08/07/angr%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -38,7 +38,16 @@
   </url>
   
   <url>
-    <loc>https://feverhu.github.io/tags/index.html</loc>
+    <loc>https://feverhu.github.io/links/index.html</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://feverhu.github.io/2022/07/31/hello-world/</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -69,6 +78,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://feverhu.github.io/tags/angr/</loc>
+    <lastmod>2022-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://feverhu.github.io/categories/reverse/</loc>
+    <lastmod>2022-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
