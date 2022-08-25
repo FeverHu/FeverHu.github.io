@@ -1,3 +1,4 @@
+https://feverhu.github.io/2022/08/26/2022-%E9%95%BF%E5%9F%8E%E6%9D%AF%E6%94%BF%E4%BC%81%E7%BB%84-wp/
 https://feverhu.github.io/2022/08/07/TEA%E5%AD%A6%E4%B9%A0/
 https://feverhu.github.io/2022/08/07/angr%E5%AD%A6%E4%B9%A0/
 https://feverhu.github.io/tags/index.html
@@ -8,4 +9,6 @@ https://feverhu.github.io/
 https://feverhu.github.io/tags/tags/
 https://feverhu.github.io/tags/angr/
 https://feverhu.github.io/tags/TEA/
+https://feverhu.github.io/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/
 https://feverhu.github.io/categories/reverse/
+https://feverhu.github.io/categories/reverse/match/
