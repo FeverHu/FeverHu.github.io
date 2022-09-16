@@ -6,7 +6,7 @@
   <link href="https://feverhu.github.io/atom.xml" rel="self"/>
   
   <link href="https://feverhu.github.io/"/>
-  <updated>2022-09-04T09:25:06.312Z</updated>
+  <updated>2022-09-16T03:56:13.885Z</updated>
   <id>https://feverhu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决LCG未知参数的办法</title>
+    <link href="https://feverhu.github.io/2022/09/16/%E8%A7%A3%E5%86%B3LCG%E6%9C%AA%E7%9F%A5%E5%8F%82%E6%95%B0%E7%9A%84%E5%8A%9E%E6%B3%95/"/>
+    <id>https://feverhu.github.io/2022/09/16/%E8%A7%A3%E5%86%B3LCG%E6%9C%AA%E7%9F%A5%E5%8F%82%E6%95%B0%E7%9A%84%E5%8A%9E%E6%B3%95/</id>
+    <published>2022-09-16T03:53:58.000Z</published>
+    <updated>2022-09-16T03:56:13.885Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="解决lcg未知参数问题的办法">解决LCG未知参数问题的办法</h1><p><a href="https://dawnwhisper.github.io/2021/03/04/LCG/">Dawn_whisper : LCG</a></p><h3 id="线性同余生成方法">1、线性同余生成方法</h3><p>设<span class="math inline">\(A,B,M\)</span>是一定常数，按照递推公式<span class="math inline">\(state_{i + 1} =(A \times state_i + B) \ (\ mod \ M)\)</span></p><p>其中A称为乘数(multiplier)，B称为增量(increment)，M称为模数(modulus)</p><p>LCG的生成周期理论上应该是M，但大部分情况下会小于M，如果想要追求LCG的最大周期，应符合以下几个条件：</p><ul><li><p>A与B都是正整数</p></li><li><p>A、B、N[0]都比M要小</p></li><li><p>B与M互质</p></li><li><p>M的所有质因数都能整除A-1</p></li></ul><h3 id="攻击方法">2、攻击方法</h3><p>理论上知道<strong>2</strong>个值可以知道B。<strong>3</strong>个状态值可以知道A和B。<strong>7</strong>个状态值<strong>可能</strong>知道A,B,M。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class lcg_attack:</span><br><span class="line">    # unknown B (increment)</span><br><span class="line">    def lcgattack1(self, states, modulus, multiplier):</span><br><span class="line">        if(len(states)&lt;2):</span><br><span class="line">            raise Exception(&quot;#####Invalid lenth of states! The lenth should be 2 at least!##### - Dawn_whisper&quot;)</span><br><span class="line">        increment = (states[1] - states[0] * multiplier) % modulus</span><br><span class="line">        return &#123;&#x27;multiplier&#x27;:int(multiplier), &#x27;increment&#x27;:int(increment), &#x27;modulus&#x27;:int(modulus)&#125;</span><br><span class="line"></span><br><span class="line">    # unknown A (multiplier)</span><br><span class="line">    def lcgattack2(self, states, modulus):</span><br><span class="line">        if(len(states)&lt;3):</span><br><span class="line">            raise Exception(&quot;#####Invalid lenth of states! The lenth should be 3 at least!##### - Dawn_whisper&quot;)</span><br><span class="line">        multiplier = (states[2] - states[1]) * inverse(states[1] - states[0], modulus) % modulus</span><br><span class="line">        return self.lcgattack1(states, modulus, multiplier)</span><br><span class="line">    </span><br><span class="line">    # unknown M (modulus)</span><br><span class="line">    def lcgattack3(self, states):</span><br><span class="line">        if(len(states)&lt;6):</span><br><span class="line">            raise Exception(&quot;#####Invalid lenth of states! The lenth should be 6 at least!##### - Dawn_whisper&quot;)</span><br><span class="line">        diffs = [s1 - s0 for s0, s1 in zip(states, states[1:])]</span><br><span class="line">        zeroes = [t2*t0 - t1*t1 for t0, t1, t2 in zip(diffs, diffs[1:], diffs[2:])]</span><br><span class="line">        modulus = abs(reduce(gcd, zeroes))</span><br><span class="line">        return self.lcgattack2(states, modulus)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">作者: Dawn_whisper</span><br><span class="line">链接: https://dawnwhisper.github.io/2021/03/04/LCG/</span><br><span class="line">来源: Dawn_whisper&#x27;s blog</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;解决lcg未知参数问题的办法&quot;&gt;解决LCG未知参数问题的办法&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://dawnwhisper.github.io/2021/03/04/LCG/&quot;&gt;Dawn_whisper : LCG&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;</summary>
+      
+    
+    
+    
+    <category term="Crypto" scheme="https://feverhu.github.io/categories/Crypto/"/>
+    
+    
+    <category term="LCG" scheme="https://feverhu.github.io/tags/LCG/"/>
+    
+  </entry>
   
   <entry>
     <title>多项式RSA NTRU</title>
